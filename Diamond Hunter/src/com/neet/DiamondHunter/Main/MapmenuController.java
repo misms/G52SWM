@@ -1,16 +1,17 @@
-// The entry point of the game.
-// This class loads up a JFrame window and
-// puts a GamePanel into it.
-
 package com.neet.DiamondHunter.Main;
 
 import javax.swing.JFrame;
 
-public class Game {
-	
-	/*public static void main(String[] args) {
+import javafx.fxml.FXML;
+
+public class MapmenuController {
+
+	// Event Listener on Button.onAction
+	@FXML
+	public void rungame() {
 		
-		JFrame window = new JFrame("Diamond Hunter");
+		System.out.println("Run game clicked");
+		JFrame window = new JFrame("Diamond Hunter");	
 		
 		window.add(new GamePanel());
 		
@@ -20,7 +21,10 @@ public class Game {
 		window.setLocationRelativeTo(null);
 		window.setVisible(true);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-	}*/
+	}
 	
+	@FXML
+	public void mapviewer(){
+		
+	}
 }
