@@ -2,6 +2,7 @@ package com.neet.DiamondHunter.Main;
 
 import javax.swing.JFrame;
 
+
 import javafx.fxml.FXML;
 
 public class MapmenuController {
@@ -25,6 +26,12 @@ public class MapmenuController {
 	
 	@FXML
 	public void mapviewer(){
+		JFrame window = new JFrame("Tile Map Editor");
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setContentPane(new MyPanel());
+		window.setResizable(false);
+		window.pack();
+		window.setVisible(true);
 		
 	}
 }
