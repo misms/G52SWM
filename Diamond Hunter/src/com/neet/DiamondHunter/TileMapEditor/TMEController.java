@@ -1,5 +1,6 @@
 package com.neet.DiamondHunter.TileMapEditor;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
@@ -22,8 +23,16 @@ public class TMEController implements Initializable, MouseListener{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        canvas.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
+            @Override
+            public void handle(javafx.scene.input.MouseEvent e) {
+                System.out.println(((int)e.getX())+" "+((int)e.getY()));
+                System.out.println(((int)e.getX()/16)+" "+((int)e.getY()/16)+"\n");
+
+            }
+        });
+
         GraphicsContext g = canvas.getGraphicsContext2D();
-        //g.drawImage(image, 0, 0, WIDTH * SCALE, HEIGHT * SCALE);
         loadTiles("/Tilesets/testtileset.gif");
         loadMap("/Maps/testmap.map");
         draw(g);
@@ -164,11 +173,23 @@ public class TMEController implements Initializable, MouseListener{
     ///////////////////////////////////////////////////////
     @FXML
     private Canvas canvas;
+
     @FXML
-    private TextField axe;
+    private TextField axex;
+
     @FXML
-    private TextField boat;
+    private Button launch;
+
     @FXML
-    private Button set;
+    private TextField axey;
+
+    @FXML
+    private TextField boatx;
+
+    @FXML
+    private TextField boaty;
+
+    @FXML
+    private Button boat;
 
 }

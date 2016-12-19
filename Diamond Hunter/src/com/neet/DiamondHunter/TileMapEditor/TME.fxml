@@ -9,10 +9,16 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.neet.DiamondHunter.TileMapEditor.TMEController">
    <children>
       <Canvas fx:id="canvas" height="640.0" layoutX="14.0" layoutY="14.0" width="640.0" />
-      <Text layoutX="780.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Axe Location" />
-      <TextField fx:id="axe" layoutX="736.0" layoutY="323.0" />
-      <Text layoutX="777.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Boat Location" />
-      <TextField fx:id="boat" layoutX="736.0" layoutY="395.0" />
-      <Button fx:id="set" layoutX="800.0" layoutY="445.0" mnemonicParsing="false" text="Set" />
+      <TextField fx:id="axex" layoutX="755.0" layoutY="252.0" prefHeight="30.0" prefWidth="30.0" />
+      <Button fx:id="launch" layoutX="777.0" layoutY="417.0" mnemonicParsing="false" text="Set" />
+      <TextField fx:id="axey" layoutX="817.0" layoutY="252.0" prefHeight="30.0" prefWidth="30.0" />
+      <Text layoutX="796.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Y:" />
+      <Text layoutX="732.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="X:" />
+      <TextField fx:id="boatx" layoutX="755.0" layoutY="368.0" prefHeight="30.0" prefWidth="30.0" />
+      <TextField fx:id="boaty" layoutX="817.0" layoutY="368.0" prefHeight="30.0" prefWidth="30.0" />
+      <Text layoutX="796.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Y:" />
+      <Text layoutX="732.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="X:" />
+      <Button layoutX="775.0" layoutY="216.0" mnemonicParsing="false" text="Axe" />
+      <Button fx:id="boat" layoutX="773.0" layoutY="331.0" mnemonicParsing="false" text="Boat" />
    </children>
 </AnchorPane>
