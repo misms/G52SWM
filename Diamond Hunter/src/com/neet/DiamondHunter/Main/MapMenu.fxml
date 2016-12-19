@@ -5,7 +5,7 @@
 
 <AnchorPane prefHeight="367.0" prefWidth="620.0" style="-fx-background-image: url('http://i.imgur.com/ZLXdQ3s.png'); -fx-background-size: 620; -fx-background-position: center; -fx-background-repeat: no-repeat;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.neet.DiamondHunter.Main.MapmenuController">
    <children>
-      <Button fx:id="rungame" layoutX="248.0" layoutY="176.0" mnemonicParsing="false" onAction="#rungame" prefHeight="46.0" prefWidth="143.0" style="-fx-background-image: url('http://i.imgur.com/DM6xetK.png'); -fx-background-size: 140;" />
-      <Button fx:id="mapviewer" layoutX="248.0" layoutY="231.0" mnemonicParsing="false" onAction="#mapviewer" prefHeight="46.0" prefWidth="143.0" style="-fx-background-image: url('http://i.imgur.com/G8qR1sz.png'); -fx-background-size: 140;" />
+      <Button layoutX="248.0" layoutY="176.0" mnemonicParsing="false" onAction="#rungame" prefHeight="46.0" prefWidth="143.0" style="-fx-background-image: url('http://i.imgur.com/DM6xetK.png'); -fx-background-size: 140;" />
+      <Button layoutX="248.0" layoutY="231.0" mnemonicParsing="false" onAction="#mapviewer" prefHeight="46.0" prefWidth="143.0" style="-fx-background-image: url('http://i.imgur.com/G8qR1sz.png'); -fx-background-size: 140;" />
    </children>
 </AnchorPane>
