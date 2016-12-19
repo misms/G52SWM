@@ -9,19 +9,18 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class TMEController implements Initializable{
+public class TMEController implements Initializable, MouseListener{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // graphics g
-        // draw to graphics g
-        // draw to canvas
 
         GraphicsContext g = canvas.getGraphicsContext2D();
         //g.drawImage(image, 0, 0, WIDTH * SCALE, HEIGHT * SCALE);
@@ -29,8 +28,10 @@ public class TMEController implements Initializable{
         loadMap("/Maps/testmap.map");
         draw(g);
 
+
     }
 
+    // Map Drawing: to canvas
     public void loadTiles(String s) {
 
         try {
@@ -114,7 +115,35 @@ public class TMEController implements Initializable{
         }
 
     }
+    //////////////////////////////////////////////////////
 
+    // Mouse Listener
+    @Override
+    public void mouseClicked(MouseEvent e) {
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
+    /////////////////////////////////////////////////////
+
+    // Variables Declaration
     public Image image;
 
     // map
@@ -130,8 +159,7 @@ public class TMEController implements Initializable{
     public static final int HEIGHT = 670;
     public static final int SCALE = 1;
     public static int TILESIZE = 30;
-    //public static final int numRows = 2;
-
+    ///////////////////////////////////////////////////////
     @FXML
     private Canvas canvas;
     @FXML
@@ -140,4 +168,5 @@ public class TMEController implements Initializable{
     private TextField boat;
     @FXML
     private Button set;
+
 }
