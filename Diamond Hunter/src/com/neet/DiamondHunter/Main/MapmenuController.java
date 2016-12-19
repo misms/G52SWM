@@ -3,6 +3,7 @@ package com.neet.DiamondHunter.Main;
 import javax.swing.JFrame;
 
 
+import com.neet.DiamondHunter.TileMapEditor.MyPanel;
 import javafx.fxml.FXML;
 
 public class MapmenuController {

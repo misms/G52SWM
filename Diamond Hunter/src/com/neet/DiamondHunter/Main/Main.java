@@ -14,7 +14,6 @@ public class Main extends Application {
 			System.out.println("Game progress :\nGame Started");
 			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("MapMenu.fxml"));
 			Scene scene = new Scene(root,600,400);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
