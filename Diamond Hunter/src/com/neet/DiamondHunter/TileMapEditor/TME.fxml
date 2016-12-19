@@ -6,14 +6,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.neet.DiamondHunter.TileMapEditor.TMEController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.neet.DiamondHunter.TileMapEditor.TMEController">
    <children>
-      <Canvas fx:id="canvas" height="370.0" layoutX="14.0" layoutY="14.0" width="390.0" />
-      <Text layoutX="463.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Axe Location" />
-      <TextField fx:id="axe" layoutX="419.0" layoutY="139.0" />
-      <Text layoutX="460.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Boat Location" />
-      <TextField fx:id="boat" layoutX="419.0" layoutY="211.0" />
-      <Button fx:id="set" layoutX="483.0" layoutY="261.0" mnemonicParsing="false" text="Set" />
+      <Canvas fx:id="canvas" height="640.0" layoutX="14.0" layoutY="14.0" width="640.0" />
+      <Text layoutX="780.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Axe Location" />
+      <TextField fx:id="axe" layoutX="736.0" layoutY="323.0" />
+      <Text layoutX="777.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Boat Location" />
+      <TextField fx:id="boat" layoutX="736.0" layoutY="395.0" />
+      <Button fx:id="set" layoutX="800.0" layoutY="445.0" mnemonicParsing="false" text="Set" />
    </children>
 </AnchorPane>

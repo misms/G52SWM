@@ -1,7 +1,9 @@
 package com.neet.DiamondHunter.TileMapEditor;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -14,19 +16,11 @@ public class App_JavaFX extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Group root = new Group();
+        Parent root = FXMLLoader.load(getClass().getResource("TME.fxml"));
         primaryStage.setTitle("TME");
-        primaryStage.setScene(new Scene(root, 500, 500));
+        primaryStage.setScene(new Scene(root, 940, 700));
         primaryStage.setResizable(true);
         primaryStage.show();
     }
 
-	/*
-	*
-	* Method to be added and converted to JavaFX:
-	* 1. loadTileSet
-	* 2. loadMap
-	* 3. draw
-	*
-	* */
 }

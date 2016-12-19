@@ -82,7 +82,7 @@ public class MyPanel extends JPanel implements Runnable, KeyListener, MouseListe
 		long elapsed;
 		long wait;
 		
-		while(true) {
+		//while(true) {
 			
 			start = System.nanoTime();
 			
@@ -100,7 +100,7 @@ public class MyPanel extends JPanel implements Runnable, KeyListener, MouseListe
 				e.printStackTrace();
 			}
 			
-		}
+		//}
 		
 	}
 	
@@ -260,7 +260,7 @@ public class MyPanel extends JPanel implements Runnable, KeyListener, MouseListe
 	}
 	
 	/////////////////////////////////////////////////////////////////////
-	
+
 	public void keyTyped(KeyEvent key) {}
 	public void keyPressed(KeyEvent key) {
 		int k = key.getKeyCode();
@@ -343,7 +343,7 @@ public class MyPanel extends JPanel implements Runnable, KeyListener, MouseListe
 				}
 			}
 		}
-		/*if(k == KeyEvent.VK_O) {
+		if(k == KeyEvent.VK_O) {
 			if(ctrlDown) {
 				String str = null;
 				try {
@@ -368,7 +368,7 @@ public class MyPanel extends JPanel implements Runnable, KeyListener, MouseListe
 				}
 				ctrlDown = false;
 			}
-		}*/
+		}
 		if(k == KeyEvent.VK_B) {
 			String str = null;
 			try {
@@ -581,16 +581,19 @@ public class MyPanel extends JPanel implements Runnable, KeyListener, MouseListe
 			altDown = false;
 		}
 	}
-	
+
 	public void mouseEntered(MouseEvent me) {}
 	public void mouseExited(MouseEvent me) {}
+
 	public void mouseClicked(MouseEvent me) {}
+
 	public void mousePressed(MouseEvent me) {
 		if(SwingUtilities.isLeftMouseButton(me)) {
 			int y = me.getY() / SCALE;
 			int x = me.getX() / SCALE - xblock;
 			// clicked a block
 			int b = 0;
+            System.out.print("X : " + (x/TILESIZE) + "\nY : " + (y/TILESIZE));
 			if(y >= HEIGHT - numRows * TILESIZE) {
 				b = x / TILESIZE;
 				if(y >= HEIGHT - (numRows - 1) * TILESIZE) {
@@ -621,6 +624,7 @@ public class MyPanel extends JPanel implements Runnable, KeyListener, MouseListe
 			mmy = me.getY();
 		}
 	}
+
 	public void mouseReleased(MouseEvent me) {}
 	
 	public void mouseMoved(MouseEvent me) {
@@ -674,18 +678,6 @@ public class MyPanel extends JPanel implements Runnable, KeyListener, MouseListe
 			currentBlock++;
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
 }

@@ -90,7 +90,6 @@ public class TileMap {
 		}
 		
 	}
-	
 	public void loadMap(String s) {
 		
 		try {
