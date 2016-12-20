@@ -1,11 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="367.0" prefWidth="620.0" style="-fx-background-image: url('http://i.imgur.com/ZLXdQ3s.png'); -fx-background-size: 620; -fx-background-position: center; -fx-background-repeat: no-repeat;" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.neet.DiamondHunter.Main.MapmenuController">
+<AnchorPane prefHeight="367.0" prefWidth="609.0" style="-fx-background-size: 620; -fx-background-position: center; -fx-background-repeat: no-repeat;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.neet.DiamondHunter.Main.MapmenuController">
    <children>
-      <Button layoutX="248.0" layoutY="176.0" mnemonicParsing="false" onAction="#rungame" prefHeight="46.0" prefWidth="143.0" style="-fx-background-image: url('http://i.imgur.com/DM6xetK.png'); -fx-background-size: 140;" />
-      <Button layoutX="248.0" layoutY="231.0" mnemonicParsing="false" onAction="#mapviewer" prefHeight="46.0" prefWidth="143.0" style="-fx-background-image: url('http://i.imgur.com/G8qR1sz.png'); -fx-background-size: 140;" />
+      <ImageView fitHeight="367.0" fitWidth="632.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Resources/Sprites/pane.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="248.0" layoutY="176.0" mnemonicParsing="false" onAction="#rungame" prefHeight="46.0" prefWidth="104.0" style="-fx-background-color: #a6e26b;" wrapText="true">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fitHeight="38.0" fitWidth="126.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Resources/Sprites/rungame.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+            </ImageView>
+         </graphic></Button>
+      <Button layoutX="248.0" layoutY="231.0" mnemonicParsing="false" onAction="#mapviewer" prefHeight="46.0" prefWidth="128.0" style="-fx-background-color: #a6e26b;">
+         <graphic>
+            <ImageView fitHeight="46.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Resources/Sprites/mapviewer.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
    </children>
 </AnchorPane>

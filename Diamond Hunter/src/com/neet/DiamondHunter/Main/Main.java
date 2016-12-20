@@ -13,7 +13,7 @@ public class Main extends Application {
 		try {
 			System.out.println("Game progress :\nGame Started");
 			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("MapMenu.fxml"));
-			Scene scene = new Scene(root,600,367);
+			Scene scene = new Scene(root,600,357);
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			primaryStage.setResizable(false);
