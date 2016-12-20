@@ -1,4 +1,4 @@
-package com.neet.DiamondHunter.Main;
+package com.neet.DiamondHunter.TileMapEditor;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -21,20 +21,41 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class TMEController implements Initializable, MouseListener{
-	
-	
-	
-
+public class TMEController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        boat.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
+            @Override
+            public void handle(javafx.scene.input.MouseEvent event) {
+                select=1;
+            }
+        });
+
+        axe.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
+            @Override
+            public void handle(javafx.scene.input.MouseEvent event) {
+                select=0;
+            }
+        });
+
         canvas.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
             @Override
             public void handle(javafx.scene.input.MouseEvent e) {
-                System.out.println(((int)e.getX())+" "+((int)e.getY()));
-                System.out.println(((int)e.getX()/16)+" "+((int)e.getY()/16)+"\n");
+                //System.out.println(((int)e.getX())+" "+((int)e.getY()));
+                //System.out.println(((int)e.getX()/16)+" "+((int)e.getY()/16)+"\n");
+                if(select==0){
+                axeX=(int)e.getX()/16;
+                axeY=(int)e.getY()/16;
+                axex.setText(Integer.toString(axeX));
+                axey.setText(Integer.toString(axeY));
+                } else{
+                    boatX=(int)e.getX()/16;
+                    boatY=(int)e.getY()/16;
+                    boatx.setText(Integer.toString(boatX));
+                    boaty.setText(Integer.toString(boatY));
+                }
 
             }
         });
@@ -138,39 +159,13 @@ public class TMEController implements Initializable, MouseListener{
 		Stage currentscene = (Stage)scene.getWindow();
 		currentscene.hide();
 	}
-    
-    //////////////////////////////////////////////////////
 
-    // Mouse Listener
-   
-    @Override
-    public void mouseClicked(MouseEvent e) {
-    	
-    }
-    
-    @Override
-    public void mousePressed(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-
-    }
     /////////////////////////////////////////////////////
 
     // Variables Declaration
     public Image image;
+    public static int axeX,axeY,boatX,boatY;
+    int select=0;
 
     // map
     private int[][] map;
@@ -209,6 +204,9 @@ public class TMEController implements Initializable, MouseListener{
 
     @FXML
     private Button boat;
+
+    @FXML
+    private Button axe;
     
     
 

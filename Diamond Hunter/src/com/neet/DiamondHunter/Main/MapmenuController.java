@@ -3,8 +3,6 @@ package com.neet.DiamondHunter.Main;
 import javax.swing.JFrame;
 
 
-import com.neet.DiamondHunter.TileMapEditor.*;
-import com.neet.DiamondHunter.Main.GamePanel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -42,7 +40,7 @@ public class MapmenuController {
 	@FXML
 	public void mapviewer() throws Exception{
 		
-		Parent root = FXMLLoader.load(getClass().getResource("TME.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("../TileMapEditor/TME.fxml"));
         primaryStage.setTitle("Edit Map");        
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);

@@ -21,6 +21,8 @@ import com.neet.DiamondHunter.Manager.JukeBox;
 import com.neet.DiamondHunter.Manager.Keys;
 import com.neet.DiamondHunter.TileMap.TileMap;
 
+import static com.neet.DiamondHunter.TileMapEditor.TMEController.*;
+
 public class PlayState extends GameState {
 	
 	// player
@@ -176,12 +178,12 @@ public class PlayState extends GameState {
 		
 		item = new Item(tileMap);
 		item.setType(Item.AXE);
-		item.setTilePosition(26, 37);
+		item.setTilePosition(axeX, axeY);
 		items.add(item);
 		
 		item = new Item(tileMap);
 		item.setType(Item.BOAT);
-		item.setTilePosition(12, 4);
+		item.setTilePosition(boatX, boatY);
 		items.add(item);
 		
 	}
