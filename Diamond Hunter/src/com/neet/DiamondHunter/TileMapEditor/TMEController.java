@@ -1,5 +1,6 @@
 package com.neet.DiamondHunter.TileMapEditor;
 
+import com.neet.DiamondHunter.Manager.Content;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -43,18 +44,39 @@ public class TMEController implements Initializable{
         canvas.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
             @Override
             public void handle(javafx.scene.input.MouseEvent e) {
+                GraphicsContext gg = canvas.getGraphicsContext2D();
                 //System.out.println(((int)e.getX())+" "+((int)e.getY()));
-                //System.out.println(((int)e.getX()/16)+" "+((int)e.getY()/16)+"\n");
+                System.out.println(((int)e.getX()/16)+" "+((int)e.getY()/16)+"\n");
                 if(select==0){
-                axeX=(int)e.getX()/16;
-                axeY=(int)e.getY()/16;
-                axex.setText(Integer.toString(axeX));
-                axey.setText(Integer.toString(axeY));
+                    draw(gg);
+                    gg.drawImage(
+                            itemss[0],
+                            boatX*16,boatY*16
+                    );
+                    axeX=(int)e.getX()/16;
+                    axeY=(int)e.getY()/16;
+                    axex.setText(Integer.toString(axeX));
+                    axey.setText(Integer.toString(axeY));
+                    gg.drawImage(
+                            itemss[1],
+                            axeX*16,axeY*16
+                    );
                 } else{
+                    draw(gg);
+                    gg.drawImage(
+                            itemss[1],
+                            axeX*16,axeY*16
+                    );
                     boatX=(int)e.getX()/16;
                     boatY=(int)e.getY()/16;
                     boatx.setText(Integer.toString(boatX));
                     boaty.setText(Integer.toString(boatY));
+                    gg.drawImage(
+                            itemss[0],
+                            boatX*16,boatY*16
+                    );
+                    // boat Content.ITEMS[1][0];
+                    // axe Content.ITEMS[1][1];
                 }
 
             }
@@ -62,13 +84,34 @@ public class TMEController implements Initializable{
 
         GraphicsContext g = canvas.getGraphicsContext2D();
         loadTiles("/Tilesets/testtileset.gif");
+        loadBoat("/Sprites/items.gif");
         loadMap("/Maps/testmap.map");
         draw(g);
-
-
+        g.drawImage(
+                itemss[0],
+                boatX,boatY
+        );
+        g.drawImage(
+                itemss[1],
+                axeX,axeY
+        );
     }
 
-    // Map Drawing: to canvas
+
+    public void loadBoat(String s) {
+        Image setTile = new Image(s);
+        itemss = new Image[2];
+        for (int col = 0; col < 2; col++) {
+            itemss[col] = new WritableImage(
+                    setTile.getPixelReader(),
+                    col * tileSize,
+                    16,
+
+                    tileSize,
+                    tileSize);
+        }
+    }
+
     public void loadTiles(String s) {
 
         try {
@@ -164,7 +207,7 @@ public class TMEController implements Initializable{
 
     // Variables Declaration
     public Image image;
-    public static int axeX,axeY,boatX,boatY;
+    public static int axeX=416,axeY=592,boatX=192,boatY=64;
     int select=0;
 
     // map
@@ -174,6 +217,9 @@ public class TMEController implements Initializable{
     private int numCols;
 
     private Image[][] tiles;
+    private Image boat_item;
+    private Image axe_item;
+    private Image[] itemss;
     private int numTilesAcross;
 
     public static final int WIDTH = 640;
@@ -182,7 +228,7 @@ public class TMEController implements Initializable{
     public static int TILESIZE = 30;
     ///////////////////////////////////////////////////////
     @FXML
-    private Canvas canvas;
+    public Canvas canvas;
 
     @FXML
     private TextField axex;
@@ -207,7 +253,8 @@ public class TMEController implements Initializable{
 
     @FXML
     private Button axe;
-    
+
+//    GraphicsContext g = canvas.getGraphicsContext2D();
     
 
 }

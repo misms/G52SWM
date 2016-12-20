@@ -1,10 +1,12 @@
 package com.neet.DiamondHunter.Main;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -18,8 +20,7 @@ public class MapmenuController {
 	
 	// Event Listener on Button.onAction
 	@FXML
-	public void rungame() {
-		
+	public void rungame(ActionEvent event) {
 		System.out.println("Run game clicked");
 		window = new JFrame("Diamond Hunter");	
 		
@@ -30,7 +31,8 @@ public class MapmenuController {
 		
 		window.setLocationRelativeTo(null);
 		window.setVisible(true);
-		window.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
 	}
 	
 	public static JFrame getWindow(){
