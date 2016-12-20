@@ -1,4 +1,4 @@
-package com.neet.DiamondHunter.TileMapEditor;
+package com.neet.DiamondHunter.Main;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;

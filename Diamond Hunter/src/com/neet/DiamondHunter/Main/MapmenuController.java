@@ -3,11 +3,20 @@ package com.neet.DiamondHunter.Main;
 import javax.swing.JFrame;
 
 
-import com.neet.DiamondHunter.TileMapEditor.MyPanel;
+import com.neet.DiamondHunter.TileMapEditor.*;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 
 public class MapmenuController {
+	
+	Stage primaryStage= new Stage();
+	private static JFrame window;
 
+	
 	// Event Listener on Button.onAction
 	@FXML
 	public void rungame() {
@@ -25,14 +34,19 @@ public class MapmenuController {
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
-	@FXML
-	public void mapviewer(){
-		JFrame window = new JFrame("Tile Map Editor");
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window.setContentPane(new MyPanel());
-		window.setResizable(false);
-		window.pack();
-		window.setVisible(true);
-		
+	public static JFrame getWindow(){
+		return window;
 	}
+	
+	@FXML
+	public void mapviewer() throws Exception{
+		
+		Parent root = FXMLLoader.load(getClass().getResource("TME.fxml"));
+        primaryStage.setTitle("Tile Map Editor");        
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.setResizable(true);
+        primaryStage.show();
+	
+}
 }
