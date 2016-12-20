@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 
 
 import com.neet.DiamondHunter.TileMapEditor.*;
+import com.neet.DiamondHunter.Main.GamePanel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -22,7 +23,7 @@ public class MapmenuController {
 	public void rungame() {
 		
 		System.out.println("Run game clicked");
-		JFrame window = new JFrame("Diamond Hunter");	
+		window = new JFrame("Diamond Hunter");	
 		
 		window.add(new GamePanel());
 		
@@ -31,7 +32,7 @@ public class MapmenuController {
 		
 		window.setLocationRelativeTo(null);
 		window.setVisible(true);
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 	}
 	
 	public static JFrame getWindow(){

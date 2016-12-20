@@ -5,6 +5,9 @@ package com.neet.DiamondHunter.GameState;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
+import javax.swing.JFrame;
+
+import com.neet.DiamondHunter.Main.MapmenuController;
 import com.neet.DiamondHunter.Manager.Content;
 import com.neet.DiamondHunter.Manager.GameStateManager;
 import com.neet.DiamondHunter.Manager.JukeBox;
@@ -68,7 +71,8 @@ public class MenuState extends GameState {
 			gsm.setState(GameStateManager.PLAY);
 		}
 		if(currentOption == 1) {
-			System.exit(0);
+			JFrame test = MapmenuController.getWindow();
+			test.setVisible(false);
 		}
 	}
 	
