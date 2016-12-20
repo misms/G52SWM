@@ -13,6 +13,7 @@
             <Image url="@../../../../../Resources/Sprites/pane.png" />
          </image>
       </ImageView>
+      
       <Button layoutX="248.0" layoutY="176.0" mnemonicParsing="false" onAction="#rungame" prefHeight="46.0" prefWidth="104.0" style="-fx-background-color: #a6e26b;" wrapText="true">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -23,7 +24,7 @@
                   <Image url="@../../../../../Resources/Sprites/rungame.png" />
                </image>
                <cursor>
-                  <Cursor fx:constant="OPEN_HAND" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
          </graphic></Button>

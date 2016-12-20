@@ -43,10 +43,10 @@ public class MapmenuController {
 	public void mapviewer() throws Exception{
 		
 		Parent root = FXMLLoader.load(getClass().getResource("TME.fxml"));
-        primaryStage.setTitle("Tile Map Editor");        
+        primaryStage.setTitle("Edit Map");        
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
-        primaryStage.setResizable(true);
+        primaryStage.setResizable(false);
         primaryStage.show();
 	
 }
