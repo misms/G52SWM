@@ -129,25 +129,52 @@ public class TMEController implements Initializable{
         save.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
             @Override
             public void handle(javafx.scene.input.MouseEvent event) {
-                save_axeX=axeY*16;
-                save_axeY=axeX*16;
-                save_boatX=boatY*16;
-                save_boatY=boatX*16;
-                saved.setContentText("Position of Axe (x,y)  : "+axeX+" "+axeY+"\nPosition of Boat (x,y) : "+boatX+" "+boatY);
-                saved.showAndWait();
+               try{
+                   checkInvalidPos(axeX,axeY,boatX,boatY);
+                   save_axeX=axeY*16;
+                   save_axeY=axeX*16;
+                   save_boatX=boatY*16;
+                   save_boatY=boatX*16;
+                   saved.setContentText("Position of Axe (x,y)  : "+axeX+" "+axeY+"\nPosition of Boat (x,y) : "+boatX+" "+boatY);
+                   saved.showAndWait();
+               }catch(MyException e){
+                Alerts.display("Alert",e.message);
+               }
+            }
+
+            private void checkInvalidPos(int axeX, int axeY, int boatX, int boatY) throws MyException {
+                // TODO Auto-generated method stub
+                if(map[axeY][axeX] == 20 || map[axeY][axeX]==21){
+                    throw new MyException("Axe cannot be placed onto a tree");
+                }
+                if(map[axeY][axeX]==22){
+                    throw new MyException("Axe cannot be placed into water");
+                }
+                if(map[boatY][boatX] == 20 || map[boatY][boatX]==21){
+                    throw new MyException("Boat cannot be placed onto a tree");
+                }
+                if(map[boatY][boatX]==22){
+                    //System.out.println("new location for boat = "+map[boatY][boatX]+"\nx = " + boatY + "\ny = " + boatX);
+
+                    throw new MyException("Boat cannot be placed into water");
+                }
+               /* if(map[boatY][boatX] > 3 || map[axeY][axeX] > 3){
+                    System.out.println("new location for boat"+map[boatY][boatX]);
+                    throw new MyException("INVALID LOCATION");
+                }*/
             }
         });
     }
     
     @FXML
-	public void back() throws Exception{
-		Scene scene = back.getScene();
-		Stage currentscene = (Stage)scene.getWindow();
-		currentscene.hide();
-	}
+    public void back() throws Exception{
+        Scene scene = back.getScene();
+        Stage currentscene = (Stage)scene.getWindow();
+        currentscene.hide();
+    }
 
     //////////////////////////////////////////////////
-	// Methods to extract images from resources
+    // Methods to extract images from resources
     // also to load tiles and map, and draw images in respective position according to map.map
     public void loadBoat(String s) {
         Image setTile = new Image(s);
