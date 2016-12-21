@@ -31,7 +31,7 @@ public class MapmenuController {
 		
 		window.setLocationRelativeTo(null);
 		window.setVisible(true);
-		window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		window.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 
 	}
 	
