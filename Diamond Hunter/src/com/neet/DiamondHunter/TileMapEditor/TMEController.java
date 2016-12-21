@@ -1,20 +1,18 @@
 package com.neet.DiamondHunter.TileMapEditor;
 
-import com.neet.DiamondHunter.Manager.Content;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
 import javafx.stage.Stage;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -26,6 +24,36 @@ public class TMEController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        Alert saved = new Alert(Alert.AlertType.INFORMATION);
+        saved.setTitle("Axe and Boat");
+        saved.setHeaderText("Changes has been saved.");
+
+        GraphicsContext g = canvas.getGraphicsContext2D();
+        loadTiles("/Tilesets/testtileset.gif");
+        loadBoat("/Sprites/items.gif");
+        loadMap("/Maps/testmap.map");
+
+        // Draw Initial Map and Item Position
+        draw(g);
+        g.drawImage(
+                itemss[0],
+                save_boatX,save_boatY
+        );
+        g.drawImage(
+                itemss[1],
+                save_axeX,save_axeY
+        );
+        // Set TextField to default value
+        axex.setText(Integer.toString(save_axeX/16));
+        axey.setText(Integer.toString(save_axeY/16));
+        boatx.setText(Integer.toString(save_boatX/16));
+        boaty.setText(Integer.toString(save_boatY/16));
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Objects on GUI 
 
         boat.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
             @Override
@@ -46,7 +74,7 @@ public class TMEController implements Initializable{
             public void handle(javafx.scene.input.MouseEvent e) {
                 GraphicsContext gg = canvas.getGraphicsContext2D();
                 //System.out.println(((int)e.getX())+" "+((int)e.getY()));
-                System.out.println(((int)e.getX()/16)+" "+((int)e.getY()/16)+"\n");
+                //System.out.println(((int)e.getX()/16)+" "+((int)e.getY()/16)+"\n");
                 if(select==0){
                     draw(gg);
                     gg.drawImage(
@@ -61,7 +89,8 @@ public class TMEController implements Initializable{
                             itemss[1],
                             axeX*16,axeY*16
                     );
-                } else{
+                }
+                else{
                     draw(gg);
                     gg.drawImage(
                             itemss[1],
@@ -75,29 +104,33 @@ public class TMEController implements Initializable{
                             itemss[0],
                             boatX*16,boatY*16
                     );
-                    // boat Content.ITEMS[1][0];
-                    // axe Content.ITEMS[1][1];
                 }
-
             }
         });
 
-        GraphicsContext g = canvas.getGraphicsContext2D();
-        loadTiles("/Tilesets/testtileset.gif");
-        loadBoat("/Sprites/items.gif");
-        loadMap("/Maps/testmap.map");
-        draw(g);
-        g.drawImage(
-                itemss[0],
-                boatX,boatY
-        );
-        g.drawImage(
-                itemss[1],
-                axeX,axeY
-        );
+        save.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
+            @Override
+            public void handle(javafx.scene.input.MouseEvent event) {
+                save_axeX=axeX;
+                save_axeY=axeY;
+                save_boatX=boatX;
+                save_boatY=boatY;
+                saved.setContentText("Position of Axe (x,y)  : "+axeX+" "+axeY+"\nPosition of Boat (x,y) : "+boatX+" "+boatY);
+                saved.showAndWait();
+            }
+        });
     }
+    
+    @FXML
+	public void back() throws Exception{
+		Scene scene = back.getScene();
+		Stage currentscene = (Stage)scene.getWindow();
+		currentscene.hide();
+	}
 
-
+    //////////////////////////////////////////////////
+	// Methods to extract images from resources
+    // also to load tiles and map, and draw images in respective position according to map.map
     public void loadBoat(String s) {
         Image setTile = new Image(s);
         itemss = new Image[2];
@@ -111,7 +144,6 @@ public class TMEController implements Initializable{
                     tileSize);
         }
     }
-
     public void loadTiles(String s) {
 
         try {
@@ -195,37 +227,24 @@ public class TMEController implements Initializable{
         }
 
     }
-    
-    @FXML
-	public void back() throws Exception{
-		Scene scene = back.getScene();
-		Stage currentscene = (Stage)scene.getWindow();
-		currentscene.hide();
-	}
 
-    /////////////////////////////////////////////////////
+    //////////////////////////////////////////////////
 
     // Variables Declaration
-    public Image image;
-    public static int axeX=416,axeY=592,boatX=192,boatY=64;
+    private int axeX=26,axeY=37,boatX=12,boatY=4;
+    public static int save_axeX=416,save_axeY=592,save_boatX=192,save_boatY=64;
     int select=0;
 
-    // map
     private int[][] map;
     private int tileSize=16;
     private int numRows;
     private int numCols;
 
     private Image[][] tiles;
-    private Image boat_item;
-    private Image axe_item;
     private Image[] itemss;
+    public Image image;
     private int numTilesAcross;
 
-    public static final int WIDTH = 640;
-    public static final int HEIGHT = 670;
-    public static final int SCALE = 1;
-    public static int TILESIZE = 30;
     ///////////////////////////////////////////////////////
     @FXML
     public Canvas canvas;
@@ -234,7 +253,7 @@ public class TMEController implements Initializable{
     private TextField axex;
 
     @FXML
-    private Button launch;
+    private Button save;
     
     @FXML
     private Button back;
@@ -253,8 +272,5 @@ public class TMEController implements Initializable{
 
     @FXML
     private Button axe;
-
-//    GraphicsContext g = canvas.getGraphicsContext2D();
-    
 
 }

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="940.0" style="-fx-background-color: #a6e26b;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.neet.DiamondHunter.TileMapEditor.TMEController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="940.0" style="-fx-background-color: #a6e26b;" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.neet.DiamondHunter.TileMapEditor.TMEController">
    <children>
       <ImageView fitHeight="650.0" fitWidth="940.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -18,7 +18,7 @@
       </ImageView>
       <Canvas fx:id="canvas" height="640.0" layoutX="14.0" layoutY="14.0" width="640.0" />
       <TextField fx:id="axex" layoutX="807.0" layoutY="232.0" prefHeight="30.0" prefWidth="35.0" />
-      <Button fx:id="launch" layoutX="730.0" layoutY="433.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="154.0" style="-fx-background-color: #a6e26b;">
+      <Button fx:id="save" layoutX="730.0" layoutY="433.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="154.0" style="-fx-background-color: #a6e26b;">
          <graphic>
             <ImageView fitHeight="47.0" fitWidth="144.0" pickOnBounds="true">
                <image>
