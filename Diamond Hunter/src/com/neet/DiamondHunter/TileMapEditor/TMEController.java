@@ -40,11 +40,11 @@ public class TMEController implements Initializable{
         draw(g);
         g.drawImage(
                 itemss[0],
-                save_boatX,save_boatY
+                save_boatY,save_boatX
         );
         g.drawImage(
                 itemss[1],
-                save_axeX,save_axeY
+                save_axeY,save_axeX
         );
         // Set TextField to default value
         axex.setText(Integer.toString(save_axeX/16));
@@ -77,14 +77,23 @@ public class TMEController implements Initializable{
                 //System.out.println(((int)e.getX()/16)+" "+((int)e.getY()/16)+"\n");
                 if(select==0){
                     draw(gg);
+                    if(first_boat){
+                        gg.drawImage(
+                                itemss[0],
+                                boatY*16,boatX*16
+                        );
+                    }
+                    if(!first_boat){
                     gg.drawImage(
                             itemss[0],
                             boatX*16,boatY*16
                     );
+                    }
                     axeX=(int)e.getX()/16;
                     axeY=(int)e.getY()/16;
                     axex.setText(Integer.toString(axeX));
                     axey.setText(Integer.toString(axeY));
+                    first_axe=false;
                     gg.drawImage(
                             itemss[1],
                             axeX*16,axeY*16
@@ -92,14 +101,23 @@ public class TMEController implements Initializable{
                 }
                 else{
                     draw(gg);
-                    gg.drawImage(
-                            itemss[1],
-                            axeX*16,axeY*16
-                    );
+                    if(first_axe){
+                        gg.drawImage(
+                                itemss[1],
+                                axeY*16,axeX*16
+                        );
+                    }
+                    if(!first_axe) {
+                        gg.drawImage(
+                                itemss[1],
+                                axeX * 16, axeY * 16
+                        );
+                    }
                     boatX=(int)e.getX()/16;
                     boatY=(int)e.getY()/16;
                     boatx.setText(Integer.toString(boatX));
                     boaty.setText(Integer.toString(boatY));
+                    first_boat=false;
                     gg.drawImage(
                             itemss[0],
                             boatX*16,boatY*16
@@ -111,10 +129,10 @@ public class TMEController implements Initializable{
         save.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
             @Override
             public void handle(javafx.scene.input.MouseEvent event) {
-                save_axeX=axeX;
-                save_axeY=axeY;
-                save_boatX=boatX;
-                save_boatY=boatY;
+                save_axeX=axeY*16;
+                save_axeY=axeX*16;
+                save_boatX=boatY*16;
+                save_boatY=boatX*16;
                 saved.setContentText("Position of Axe (x,y)  : "+axeX+" "+axeY+"\nPosition of Boat (x,y) : "+boatX+" "+boatY);
                 saved.showAndWait();
             }
@@ -234,6 +252,7 @@ public class TMEController implements Initializable{
     private int axeX=26,axeY=37,boatX=12,boatY=4;
     public static int save_axeX=416,save_axeY=592,save_boatX=192,save_boatY=64;
     int select=0;
+    boolean first_boat=true,first_axe=true;
 
     private int[][] map;
     private int tileSize=16;
