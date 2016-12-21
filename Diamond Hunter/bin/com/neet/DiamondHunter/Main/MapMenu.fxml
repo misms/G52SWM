@@ -6,11 +6,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="367.0" prefWidth="609.0" style="-fx-background-size: 620; -fx-background-position: center; -fx-background-repeat: no-repeat;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.neet.DiamondHunter.Main.MapmenuController">
+<AnchorPane prefHeight="367.0" prefWidth="609.0" style="-fx-background-size: 620; -fx-background-position: center; -fx-background-repeat: no-repeat;" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.neet.DiamondHunter.Main.MapmenuController">
    <children>
       <ImageView fitHeight="367.0" fitWidth="632.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Resources/Sprites/pane.png" />
+            <Image url="/Sprites/pane.png" />
          </image>
       </ImageView>
       
@@ -21,7 +21,7 @@
          <graphic>
             <ImageView fitHeight="38.0" fitWidth="126.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Resources/Sprites/rungame.png" />
+                  <Image url="/Sprites/rungame.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -32,7 +32,7 @@
          <graphic>
             <ImageView fitHeight="46.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Resources/Sprites/mapviewer.png" />
+                  <Image url="/Sprites/mapviewer.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="OPEN_HAND" />

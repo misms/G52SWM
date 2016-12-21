@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="940.0" style="-fx-background-color: #a6e26b;" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.neet.DiamondHunter.TileMapEditor.TMEController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="940.0" style="-fx-background-color: #a6e26b;" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.neet.DiamondHunter.TileMapEditor.TMEController">
    <children>
       <ImageView fitHeight="650.0" fitWidth="940.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Resources/Sprites/mapbackground.png" />
+            <Image url="/Sprites/mapbackground.png" />
          </image>
       </ImageView>
       <Canvas fx:id="canvas" height="640.0" layoutX="14.0" layoutY="14.0" width="640.0" />
