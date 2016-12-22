@@ -33,7 +33,7 @@ public class TMEController implements Initializable{
 
         GraphicsContext g = canvas.getGraphicsContext2D();
         loadTiles("/Tilesets/testtileset.gif");
-        loadBoat("/Sprites/items.gif");
+        loadItems("/Sprites/items.gif");
         loadMap("/Maps/testmap.map");
 
         // Draw Initial Map and Item Position
@@ -46,7 +46,7 @@ public class TMEController implements Initializable{
                 itemss[1],
                 save_axeY,save_axeX
         );
-        // Set TextField to default value
+        // Set TextField to default/initial value
         axey.setText(Integer.toString(save_axeX/16));
         axex.setText(Integer.toString(save_axeY/16));
         boaty.setText(Integer.toString(save_boatX/16));
@@ -73,8 +73,6 @@ public class TMEController implements Initializable{
             @Override
             public void handle(javafx.scene.input.MouseEvent e) {
                 GraphicsContext gg = canvas.getGraphicsContext2D();
-                //System.out.println(((int)e.getX())+" "+((int)e.getY()));
-                //System.out.println(((int)e.getX()/16)+" "+((int)e.getY()/16)+"\n");
                 if(select==0){
                     draw(gg);
                     if(first_boat){
@@ -84,10 +82,10 @@ public class TMEController implements Initializable{
                         );
                     }
                     if(!first_boat){
-                    gg.drawImage(
-                            itemss[0],
-                            boatX*16,boatY*16
-                    );
+                        gg.drawImage(
+                                itemss[0],
+                                boatX*16,boatY*16
+                        );
                     }
                     axeX=(int)e.getX()/16;
                     axeY=(int)e.getY()/16;
@@ -154,7 +152,7 @@ public class TMEController implements Initializable{
                }catch(MyException e){
                 Alerts.display("Alert",e.message);
                }
-            	//}
+
             }
 
             private void checkInvalidPos(int axeX, int axeY, int boatX, int boatY) throws MyException {
@@ -172,14 +170,8 @@ public class TMEController implements Initializable{
                     throw new MyException("Boat cannot be placed onto a tree");
                 }
                 if(map[boatY][boatX]==22){
-                    System.out.println("new location for boat = "+map[boatY][boatX]+"\nx = " + boatY + "\ny = " + boatX);
-
                     throw new MyException("Boat cannot be placed into water");
                 }
-               /* if(map[boatY][boatX] > 3 || map[axeY][axeX] > 3){
-                    System.out.println("new location for boat"+map[boatY][boatX]);
-                    throw new MyException("INVALID LOCATION");
-                }*/
             }
         });
     }
@@ -194,7 +186,7 @@ public class TMEController implements Initializable{
     //////////////////////////////////////////////////
     // Methods to extract images from resources
     // also to load tiles and map, and draw images in respective position according to map.map
-    public void loadBoat(String s) {
+    public void loadItems(String s) {
         Image setTile = new Image(s);
         itemss = new Image[2];
         for (int col = 0; col < 2; col++) {
