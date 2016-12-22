@@ -47,10 +47,10 @@ public class TMEController implements Initializable{
                 save_axeY,save_axeX
         );
         // Set TextField to default value
-        axex.setText(Integer.toString(save_axeX/16));
-        axey.setText(Integer.toString(save_axeY/16));
-        boatx.setText(Integer.toString(save_boatX/16));
-        boaty.setText(Integer.toString(save_boatY/16));
+        axey.setText(Integer.toString(save_axeX/16));
+        axex.setText(Integer.toString(save_axeY/16));
+        boaty.setText(Integer.toString(save_boatX/16));
+        boatx.setText(Integer.toString(save_boatY/16));
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // Objects on GUI 
@@ -80,7 +80,7 @@ public class TMEController implements Initializable{
                     if(first_boat){
                         gg.drawImage(
                                 itemss[0],
-                                boatY*16,boatX*16
+                                save_boatY,save_boatX
                         );
                     }
                     if(!first_boat){
@@ -104,7 +104,7 @@ public class TMEController implements Initializable{
                     if(first_axe){
                         gg.drawImage(
                                 itemss[1],
-                                axeY*16,axeX*16
+                                save_axeY,save_axeX
                         );
                     }
                     if(!first_axe) {
@@ -131,7 +131,15 @@ public class TMEController implements Initializable{
             public void handle(javafx.scene.input.MouseEvent event) {
             	//if(first_boat==false){
                try{
-                   checkInvalidPos(axeX,axeY,boatX,boatY);
+                   if(first_axe==true && first_boat==true){
+                       checkInvalidPos(axeY,axeX,boatY,boatX);}
+                   if(first_axe==false && first_boat==false){
+                       checkInvalidPos(axeX,axeY,boatX,boatY);}
+                   if(first_axe==true && first_boat==false){
+                       checkInvalidPos(axeY,axeX,boatX,boatY);}
+                   if(first_axe==false && first_boat==true){
+                       checkInvalidPos(axeX,axeY,boatY,boatX);}
+
                    if(first_axe == false){
                    save_axeX=axeY*16;
                    save_axeY=axeX*16;
@@ -140,7 +148,7 @@ public class TMEController implements Initializable{
                    save_boatX=boatY*16;
                    save_boatY=boatX*16;
                    }
-                   saved.setContentText("Position of Axe (x,y)  : "+axeX+" "+axeY+"\nPosition of Boat (x,y) : "+boatX+" "+boatY +
+                   saved.setContentText("Position of Axe (x,y)  : "+save_axeY/16+" "+save_axeX/16+"\nPosition of Boat (x,y) : "+save_boatX/16+" "+save_boatY/16 +
                 		   "\n\n * please note that there is possibility that you might not be able to complete the game due to improper positioning.");
                    saved.showAndWait();
                }catch(MyException e){
@@ -288,7 +296,7 @@ public class TMEController implements Initializable{
     // Variables Declaration
     private int axeX=26,axeY=37,boatX=12,boatY=4;
     public static int save_axeX=416,save_axeY=592,save_boatX=192,save_boatY=64;
-    int select=1;
+    int select=0;
     boolean first_boat=true,first_axe=true;
 
     private int[][] map;

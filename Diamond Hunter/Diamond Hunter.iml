@@ -4,6 +4,7 @@
     <libelement value="jar://$MODULE_DIR$/Libs/jl1.0.1.jar!/" />
     <libelement value="jar://$MODULE_DIR$/Libs/mp3spi1.9.5.jar!/" />
     <libelement value="jar://$MODULE_DIR$/Libs/tritonus_share.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/Libs/mapviewer.jar!/" />
     <src_description expected_position="0">
       <src_folder value="file://$MODULE_DIR$/src" expected_position="0" />
       <src_folder value="file://$MODULE_DIR$/Resources" expected_position="1" />
@@ -40,6 +41,15 @@
       <library name="tritonus_share.jar">
         <CLASSES>
           <root url="jar://$MODULE_DIR$/Libs/tritonus_share.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="mapviewer.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/Libs/mapviewer.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
