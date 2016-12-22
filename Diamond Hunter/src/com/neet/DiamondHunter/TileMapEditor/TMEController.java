@@ -129,6 +129,7 @@ public class TMEController implements Initializable{
         save.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
             @Override
             public void handle(javafx.scene.input.MouseEvent event) {
+            	//if(first_boat==false){
                try{
                    checkInvalidPos(axeX,axeY,boatX,boatY);
                    save_axeX=axeY*16;
@@ -140,10 +141,14 @@ public class TMEController implements Initializable{
                }catch(MyException e){
                 Alerts.display("Alert",e.message);
                }
+            	//}
             }
 
             private void checkInvalidPos(int axeX, int axeY, int boatX, int boatY) throws MyException {
                 // TODO Auto-generated method stub
+            	if((axeX*16)==save_axeX && (axeY*16)==save_axeY && (boatX*16)==save_boatX && (boatY*16)==save_boatY){
+            		throw new MyException("No changes are made. Please use the back button instead!");
+            	}
                 if(map[axeY][axeX] == 20 || map[axeY][axeX]==21){
                     throw new MyException("Axe cannot be placed onto a tree");
                 }
@@ -154,7 +159,7 @@ public class TMEController implements Initializable{
                     throw new MyException("Boat cannot be placed onto a tree");
                 }
                 if(map[boatY][boatX]==22){
-                    //System.out.println("new location for boat = "+map[boatY][boatX]+"\nx = " + boatY + "\ny = " + boatX);
+                    System.out.println("new location for boat = "+map[boatY][boatX]+"\nx = " + boatY + "\ny = " + boatX);
 
                     throw new MyException("Boat cannot be placed into water");
                 }
@@ -278,7 +283,7 @@ public class TMEController implements Initializable{
     // Variables Declaration
     private int axeX=26,axeY=37,boatX=12,boatY=4;
     public static int save_axeX=416,save_axeY=592,save_boatX=192,save_boatY=64;
-    int select=0;
+    int select=1;
     boolean first_boat=true,first_axe=true;
 
     private int[][] map;
