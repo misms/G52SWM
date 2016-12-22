@@ -132,11 +132,16 @@ public class TMEController implements Initializable{
             	//if(first_boat==false){
                try{
                    checkInvalidPos(axeX,axeY,boatX,boatY);
+                   if(first_axe == false){
                    save_axeX=axeY*16;
                    save_axeY=axeX*16;
+                   }
+                   if(first_boat == false){
                    save_boatX=boatY*16;
                    save_boatY=boatX*16;
-                   saved.setContentText("Position of Axe (x,y)  : "+axeX+" "+axeY+"\nPosition of Boat (x,y) : "+boatX+" "+boatY);
+                   }
+                   saved.setContentText("Position of Axe (x,y)  : "+axeX+" "+axeY+"\nPosition of Boat (x,y) : "+boatX+" "+boatY +
+                		   "\n\n * please note that there is possibility that you might not be able to complete the game due to improper positioning.");
                    saved.showAndWait();
                }catch(MyException e){
                 Alerts.display("Alert",e.message);
