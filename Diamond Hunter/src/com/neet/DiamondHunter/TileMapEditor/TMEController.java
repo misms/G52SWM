@@ -148,7 +148,7 @@ public class TMEController implements Initializable{
                    save_boatX=boatY*16;
                    save_boatY=boatX*16;
                    }
-                   saved.setContentText("Position of Axe (x,y)  : "+save_axeY/16+" "+save_axeX/16+"\nPosition of Boat (x,y) : "+save_boatX/16+" "+save_boatY/16 +
+                   saved.setContentText("Position of Axe (x,y)  : "+save_axeY/16+" "+save_axeX/16+"\nPosition of Boat (x,y) : "+save_boatY/16+" "+save_boatX/16 +
                 		   "\n\n * please note that there is possibility that you might not be able to complete the game due to improper positioning.");
                    saved.showAndWait();
                }catch(MyException e){
