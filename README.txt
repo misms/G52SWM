@@ -58,8 +58,9 @@ ________________________________________________________________________________
 
 	2. Click on mapviewer.jar to launch standalone map viewer
 
-	3. There is no specific prerequisites or separate installing needed 
-
+	3. Both runnable jar files are located in "runnable jar" folder 
+	
+	4. There is no specific prerequisites or separate installing needed 
 ________________________________________________________________________________
 
 				MAINTENANCE MADE
